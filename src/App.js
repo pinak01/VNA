@@ -1,5 +1,6 @@
 import React from "react";
 import { Timeline } from "./ui/timeline";
+import { BackgroundBeams } from "./components/background-beams";
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { 
   Activity,
@@ -48,15 +49,21 @@ const Header = () => (
   </header>
 );
 
-// Hero Section
+//New hero section
 const HeroSection = () => (
-  <section className="pt-32 pb-16 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900">
-    <div className="container mx-auto px-4 flex flex-col items-center text-center">
+  <section className="relative pt-32 pb-16 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 overflow-hidden">
+    {/* Background Beams */}
+    <div className="absolute inset-0 w-full h-full">
+      <BackgroundBeams className="w-full h-full opacity-50" />
+    </div>
+
+    {/* Content */}
+    <div className="relative container mx-auto px-4 flex flex-col items-center text-center">
       <div className="mb-8">
         <Activity className="h-16 w-16 text-blue-400 mb-6 mx-auto" />
       </div>
       <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-        Your AI-Powered Virtual Nurse <br />at Your Fingertips!
+        Your AI-Powered Virtual Nurse <br /> at Your Fingertips!
       </h1>
       <p className="text-xl text-gray-300 mb-8 max-w-2xl">
         Experience healthcare reimagined with our intelligent virtual nursing assistant.
@@ -73,6 +80,7 @@ const HeroSection = () => (
     </div>
   </section>
 );
+
 
 
 const data = [
@@ -171,15 +179,7 @@ const Footer = () => (
   </footer>
 );
 
-//Main App Component
-// const App = () => (
-//   <div>
-//     <Header />
-//     <HeroSection />
-//     <Timeline data={data} />
-//     <Footer />
-//   </div>
-// );
+
 
 const App = () => (
   <Router>
