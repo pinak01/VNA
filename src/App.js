@@ -21,6 +21,15 @@ import {
 //import authPage
 
 import AuthPage from './components/AuthPage';
+import Doctor from './components/Doctor';
+import About from './components/About';
+import Chatbot from './components/Chatbot';
+import Contact from './components/Contact';
+import Privacy from './components/Privacy';
+import Terms from './components/Terms';
+import Dashboard from './components/Dashboard';
+import ForgotPassword from './components/ForgotPassword';
+
 const Header = () => (
   <header className="fixed top-0 w-full bg-gray-900 border-b border-gray-800 z-50">
     <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -30,7 +39,9 @@ const Header = () => (
       </div>
       <div className="hidden md:flex items-center space-x-6">
         <a href="/" className="text-gray-300 hover:text-blue-400 transition-colors">Home</a>
-        <a href="/doctors" className="text-gray-300 hover:text-blue-400 transition-colors">Find Doctors</a>
+        {/* <a href="/doctors" className="text-gray-300 hover:text-blue-400 transition-colors">Find Doctors</a> */}
+        <a href="/doctors" className="text-gray-300 hover:text-blue-400 transition-colors">
+    Find Doctors</a>
         <a href="/chatbot" className="text-gray-300 hover:text-blue-400 transition-colors">Chatbot</a>
         
         <a href="/about" className="text-gray-300 hover:text-blue-400 transition-colors">About Us</a>
@@ -193,6 +204,15 @@ const App = () => (
         </div>
       } />
       <Route path="/auth" element={<AuthPage />} />
+      <Route path="/doctors" element={<Doctor />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/chatbot" element={<Chatbot />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/privacy" element={<Privacy />} />
+      <Route path="/terms" element={<Terms />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path="/doctor/*" element={<Doctor />} /> {/* Nested routes for Doctor */}
     </Routes>
   </Router>
 );
